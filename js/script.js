@@ -19,6 +19,7 @@ var satellite = L.tileLayer('https://api.maptiler.com/tiles/satellite/{z}/{x}/{y
         attribution: 'OpenMapTiles',
         crossOrigin: true
       }).addTo(map);
+var i = 0;
 
 $.getJSON('./json/suffolk-pixels.json', parsePixels)
 
@@ -27,7 +28,9 @@ function parsePixels(p) {
 	var pixels = p.pixels;
 	var t = pixels.length;
 
-	var i = 0;
+	console.log(t);
+
+	
 
 	iterateMap();
 	$("#info-box").show();
@@ -37,15 +40,15 @@ function parsePixels(p) {
 
 			drawingLayer.clearLayers();
 
-			var ul = pixels[i].ul.reverse();
-			var lr = pixels[i].lr.reverse();
+			var ul = pixels[i].ul.slice().reverse();
+			var lr = pixels[i].lr.slice().reverse();
 
 			map.fitBounds([ul,lr], { padding: [15,15] });
 			L.rectangle([[ul,lr]],{ color: "#fff", weight: 8, opacity: 0.7, fill: false }).addTo(drawingLayer);
 
 			$("#pop-count").text(pixels[i]["pop"].toLocaleString());
 
-			if(i>t) { i=0; } else { i++; }
+			if(i==t-1) { i=0; } else { i++; }
 		}
 
 }
