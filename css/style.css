@@ -1,8 +1,11 @@
 
-body {
-	background-color: black;
-	font-family: 'IBM Plex Mono',monospace;
+@import url('https://rsms.me/inter/inter.css');
+html { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  html { font-family: 'Inter var', sans-serif; }
 }
+
+body { background-color: #f8f6f0; }
 
 #wraps-all { 
 	position: absolute;
@@ -11,46 +14,91 @@ body {
 	left: 0;
 	right: 0; }
 
-#banner-wrapper {
-	width: 100%;
-	color: #d9f1f1;
-	font-size: 2.2em;
-	padding: 12px 0;
-	text-align: center;
-	font-weight: 300;
+#top-wrapper {
+	position: absolute;
+	height: 52px;
+	top: 0;
+	left: 0;
+	right: 0;
 }
 
 #map-wrapper { 
-	height: 80%;
-	width: 100%;
+	position: absolute;
+	top: 52px;
+	left: 0;
+	right: 0;
+	bottom: 140px;
 	margin-left: auto;
 	margin-right: auto;
  }
+
+#banner { 
+font-weight: 600;
+margin: 10px 20px;
+font-size: 1.6em; }
+
+#city-chooser {
+	font-weight: 800;
+	display: inline-block;
+	border: 2px solid #b0a6a6;
+	border-radius: 5px;
+	padding: 0 6px;
+}
+
+#city-chooser:hover {
+	background-color: #b0a6a6;
+	cursor: pointer;
+}
+
+
 
 #main-map { height: 100%; width: 70%; display: inline-block; margin: 0; padding: 0;}
 
 #locator-map { height: 100%; width: 30%; display: inline-block; margin: 0; padding: 0;}
 
-#info-wrapper {
-	width: 100%;
-	color: #f1cbbe;
-	text-align: center;
-	font-size: 1.8em;
-	font-weight: 700;
-	padding: 12px 0;
+#bottom-wrapper {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 140px;
 }
 
+#info-wrapper { 
+	width: 100%;
+	height: 80px; }
+
+#chart-wrapper {
+	height: 50px;
+	width: 100%;
+}
+
+#chart-svg {
+	height: 48px;
+	width: 100%;
+}
+
+.bar { fill: #b0a6a6; }
+.bar:hover { fill: #b58887; cursor: pointer; }
+.bar-selected { fill: #d13a3d; }
+
 #info-box {
-	display: none;
+	padding: 15px 25px;
+	font-size: 1.5em;
+	font-weight: 450;
 }
 
 #pop-count {
-	border-bottom: 3px solid #f1cbbe;
+	border-bottom: 5px solid #cb7639;
+	font-weight: 900;
 }
 
-#footer-wrapper { width: 100%;
-text-align: center; 
-font-size: 0.7em;
-color: #e8f1da; 
-position: absolute; 
-bottom: 5px; }
+#rank-parens {
+	/*font-weight: 400;*/
+	color: #b0a6a6;
+}
+
+@media all and (orientation: portrait) {
+	#main-map { height: 70%; width: 100%; }
+	#locator-map { height: 30%; width: 100%; }
+}

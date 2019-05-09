@@ -2,49 +2,38 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <title></title>
-  <meta name="author" content="">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
 
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-   crossorigin=""/>
-   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,700" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
+    <div id="wraps-all">
+        <div id="top-wrapper">
+            <div id="banner">
+              The densest square kilometers in <div id="city-chooser">Boston</div>
+            </div>
+        </div>
+        <div id="map-wrapper">
+            <div id="main-map"></div><div id="locator-map"></div>
+        </div>
+        <div id="bottom-wrapper">
+        <div id="info-wrapper">
+            <div id="info-box"><span id="pop-count"></span> people live here <span id="rank-parens">(#<span id="pop-rank"></span> most dense)</span></div>
+        </div>
+        <div id="chart-wrapper"><svg id="chart-svg"></svg></div>
 
-  <div id="wraps-all">
-
-  <div id="banner-wrapper">
-    The densest square kilometers<sup>*</sup> in Boston<sup>**</sup> 
-  </div>
-
-    <div id="map-wrapper">
-      <div id="main-map"></div><div id="locator-map"></div>
-    </div>
-
-  <div id="info-wrapper">
-    <div id="info-box"><span id="pop-count"></span> people live here (#<span id="pop-rank"></span> most dense)</div>
-  </div>
-
-  <div id="footer-wrapper">
-    <div id="footer-box">
-      * Technically these are 30 arc-second cells /
-      ** Roughly the metro area inside Route 128 / 
-      Garrett Dash Nelson, 2019. Data from NASA SEDAC</div>
-  </div>
-
-  </div><!-- #wraps-all -->
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.js"></script>
-  <script src="js/script.js"></script>
+        </div>
+    </div><!-- #wraps-all -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html
