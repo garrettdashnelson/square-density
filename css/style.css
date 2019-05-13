@@ -255,12 +255,12 @@ body {
         font-size: 0.9em;
     }
 
-    #about-open {
-        margin: 2px;
-        font-size: 1.0em;
+    #control-buttons {
+        margin: 4px;
+        font-size: 1.1em;
     }
 
     #about-text {
-        font-size: 1.0em;
+        font-size: 0.9em;
     }
 }
