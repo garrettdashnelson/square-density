@@ -12,7 +12,7 @@ var dataSources = [
     { 'name': 'Washington DC', 'src': 'clipped_11.json' },
     { 'name': 'Minneapolis', 'src': 'clipped_12.json' },
     { 'name': 'San Francisco-Oakland', 'src': 'clipped_14.json' },
-
+    { 'name': 'Los Angeles', 'src': 'losangeles.json' }
 ];
 
 var timer;
