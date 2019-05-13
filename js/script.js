@@ -173,10 +173,10 @@ function mapHandle(i) {
     locatorMap.fitBounds(outerBounds);
     L.rectangle([
         bounds
-    ], { color: "#fff", weight: 8, opacity: 0.7, fill: false }).addTo(pixelDrawingLayer);
+    ], { color: "#cb7639", weight: 8, opacity: 0.9, fill: false }).addTo(pixelDrawingLayer);
     L.rectangle([
         bounds
-    ], { stroke: false, fill: true, fillColor: '#ff5e27', fillOpacity: 0.8 }).addTo(locatorRect);
+    ], { stroke: false, fill: true, fillColor: '#cb7639', fillOpacity: 0.8 }).addTo(locatorRect);
 
     d3.select("#pop-count").text(d["pop"].toLocaleString());
     d3.select("#pop-rank").text(i + 1);
