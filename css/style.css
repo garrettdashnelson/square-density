@@ -47,10 +47,20 @@ body {
     float: left;
 }
 
-#about-open {
+#control-buttons {
     font-size: 2.0em;
     float: right;
     margin: 10px 20px;
+}
+
+.control-button {
+    display: inline-block;
+    color: #b0a6a6;
+}
+
+.control-button:hover {
+    color: #b58887;
+    cursor: pointer;
 }
 
 #about-box {
@@ -208,18 +218,18 @@ body {
 }
 
 
-#map-link,
-#about-open {
+#map-link {
     color: #b0a6a6;
     text-decoration: none;
 }
 
 
-#map-link:hover,
-#about-open:hover {
+#map-link:hover {
     color: #b58887;
     cursor: pointer;
 }
+
+
 
 
 @media all and (orientation: portrait) {
@@ -236,19 +246,21 @@ body {
 
 @media all and (max-width: 800px) {
 
-	#city-chooser { display: table; }
-	
+    #city-chooser {
+        display: table;
+    }
+
     #banner {
-    	margin: 5px;
+        margin: 5px;
         font-size: 0.9em;
     }
 
     #about-open {
-    	margin: 2px;
-    	font-size: 1.0em;
+        margin: 2px;
+        font-size: 1.0em;
     }
 
     #about-text {
-    	font-size: 1.0em;
+        font-size: 1.0em;
     }
 }

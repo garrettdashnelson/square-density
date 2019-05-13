@@ -15,7 +15,9 @@ var dataSources = [
 
 ];
 
-var iteratorTick = 0;
+var timer;
+var pause = false;
+var tick = 0;
 
 var mapOptions = {
     zoomControl: false,
@@ -82,7 +84,9 @@ var aboutBox = d3.select("#about-box");
 d3.selectAll(".about-toggle")
     .on("click", function() { aboutBox.style('display') == 'none' ? aboutBox.style('display', 'block') : aboutBox.style('display', 'none'); });
 
-var timer;
+var pauseToggle = d3.select('#pause-toggle')
+    .on("click", function(){ if(pause) { pause=false; mapHandle(tick); pauseToggle.selectAll('i').attr('class','fas fa-pause-circle'); } else { pause=true; clearTimeout(timer); pauseToggle.selectAll('i').attr('class','fas fa-play-circle'); } });
+
 
 initialize();
 
@@ -187,7 +191,8 @@ function mapHandle(i) {
     clearTimeout(timer);
 
     i == 199 ? i = 0 : i++;
-    timer = setTimeout(function() { mapHandle(i) }, 7000);
+    tick = i;
+    if(!pause){ timer = setTimeout(function() { mapHandle(i) }, 7000); }
 
 }
 
