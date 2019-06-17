@@ -13,18 +13,31 @@ var dataSources = [
     { 'name': 'Minneapolis', 'src': 'clipped_12.json' },
     { 'name': 'San Francisco-Oakland', 'src': 'clipped_14.json' },
     { 'name': 'Los Angeles', 'src': 'losangeles.json' }
-];
+    ];
 
 var timer;
 var pause = false;
 var tick = 0;
+
+if(embedded) {
+    pause = true;
+}
+
+var hash = window.location.hash;
+
+if(hash.length>0) {
+    var singleView = true;
+    pause = true;
+    params = hash.substring(1).split("|");
+    tick = +params[1];
+}
 
 var mapOptions = {
     zoomControl: false,
     boxZoom: false,
     doubleClickZoom: false,
     dragging: false,
-    zoomSnap: 0,
+    zoomSnap: 0.5,
     keyboard: false,
     scrollWheelZoom: false,
     tap: false
@@ -42,6 +55,13 @@ var basemapLayer = L.tileLayer('https://api.maptiler.com/maps/positron/{z}/{x}/{
 }).addTo(locatorMap);
 
 var locatorRect = L.layerGroup().addTo(locatorMap);
+
+// var satellite = L.tileLayer('https://{s}.aerial.maps.api.here.com/maptile/2.1/maptile/newest/satellite.day/{z}/{x}/{y}/256/png?app_id=HzFg4kloWFLT1TY60fRn&app_code=Vgl9rSG8jtpKwcHdXqIsKg',
+// {
+//     tileSize: 256,
+//     subdomains: '1234',
+//     attribution: 'HERE'
+// }).addTo(mainMap)
 
 var satellite = L.tileLayer('https://api.maptiler.com/tiles/satellite/{z}/{x}/{y}.jpg?key=Tth2viuZXT54gsj6plPV', {
     tileSize: 512,
@@ -87,11 +107,12 @@ d3.selectAll(".about-toggle")
 var pauseToggle = d3.select('#pause-toggle')
     .on("click", function(){ if(pause) { pause=false; mapHandle(tick); pauseToggle.selectAll('i').attr('class','fas fa-pause-circle'); } else { pause=true; clearTimeout(timer); pauseToggle.selectAll('i').attr('class','fas fa-play-circle'); } });
 
+d3.select("#popout-box").on("click",function(){ window.open(window.location); });
 
 initialize();
 
 function initialize() {
-    var initialCity = dataSources[6];
+    if(singleView) { var initialCity = dataSources[+params[0]]; } else { var initialCity = dataSources[6]; }
     cityChosen.text(initialCity.name);
     loadData(initialCity);
 }
@@ -147,7 +168,7 @@ function renderData(data) {
         .attr('y', function(d) { return (chartHeight - chartY(d['pop'])) / 2; })
         .attr('height', function(d) { return chartY(d['pop']); });
 
-    mapHandle(0);
+    mapHandle(tick);
 
 }
 

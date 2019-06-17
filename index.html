@@ -46,11 +46,15 @@
         <div id="bottom-wrapper">
         <div id="info-wrapper">
             <div id="info-box"><span id="pop-count"></span> people live here <span id="rank-parens">(#<span id="pop-rank"></span> most dense)</span> <a href="" id="map-link" target="_blank"><i class="fas fa-atlas"></i></a></div>
+            <div id="popout-box"><i class="fas fa-window-maximize"></i> Full view</div>
         </div>
         <div id="chart-wrapper"><svg id="chart-svg"></svg></div>
 
         </div>
     </div><!-- #wraps-all -->
+    <script>
+        if (window.top!=window.self) { var embedded = true; document.body.classList.add('embedded'); }
+    </script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.js"></script>
     <script src="js/script.js"></script>
