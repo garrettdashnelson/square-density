@@ -28,8 +28,8 @@ var hash = window.location.hash;
 if(hash.length>0) {
     var singleView = true;
     pause = true;
-    params = hash.substring(1).split("|");
-    tick = +params[1];
+    params = hash.substring(1);
+    tick = +params.substring(2);
 }
 
 var mapOptions = {
@@ -112,7 +112,7 @@ d3.select("#popout-box").on("click",function(){ window.open(window.location); })
 initialize();
 
 function initialize() {
-    if(singleView) { var initialCity = dataSources[+params[0]]; } else { var initialCity = dataSources[6]; }
+    if(singleView) { var initialCity = dataSources[+params.substr(0,2)]; } else { var initialCity = dataSources[6]; }
     cityChosen.text(initialCity.name);
     loadData(initialCity);
 }
