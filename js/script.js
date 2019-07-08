@@ -129,6 +129,7 @@ function toggleCityOptions() {
 
 function chooserClickHandle(d) {
     cityChosen.text(d.name);
+    tick = 0;
     toggleCityOptions();
     loadData(d);
 }
