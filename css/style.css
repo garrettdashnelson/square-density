@@ -240,9 +240,10 @@ body {
     font-weight: 450;
     line-height: 1.5em;
     float: left;
+    width: 100%;
 }
 
-.embedded #info-box { font-size: 1.2em; }
+.embedded #info-box { font-size: 1.2em; width: auto; }
 
 #pop-count {
     border-bottom: 5px solid #cb7639;
