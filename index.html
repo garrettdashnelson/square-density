@@ -26,8 +26,8 @@
         <div id="about-box">
             <div id="about-closer" class="about-toggle"><i class="far fa-times-circle"></i></div>
             <div id="about-text"><p>The <strong>Square Density</strong> visualization was created by <a href="http://people.matinic.us/garrett" target="_blank">Garrett Dash Nelson</a>, 2019.</p>
-            <p>Cells are 30 arc-second grid cells, which are <em>approximately</em>, but not exactly, one square kilometer.</p>
-            <p>Cities are treated as Census Bureau Combined Statistical Areas, buffered by 1 minute to capture coastline pixels.</p>
+            <p>Cells are 30 arc-second grid cells, which are <em>approximately</em>, but not exactly, one square kilometer. Due to the curvature of the earth, cells are also larger closer to the equator; a 30 arc-second cell at the southern tip of Florida is approximately 1.4 times larger than one along the Canadian border. I have not normalized for this size variance, which is negligible within a single metropolitan area. I have also not normalized for water/land areas within grid cells.</p>
+            <p>Cities are treated as Census Bureau Combined Statistical Areas, buffered by 1 minute to capture edge pixels.</p>
             <p>Population data is attributable to: Center for International Earth Science Information Network - CIESIN - Columbia University. 2018. Gridded Population of the World, Version 4 (GPWv4): Population Count, Revision 11. Palisades, NY: NASA Socioeconomic Data and Applications Center (SEDAC). <a href="https://doi.org/10.7927/H4JW8BX5"  target="_blank">https://doi.org/10.7927/H4JW8BX5.</a></p>
             <p>Inspired in part by Alasdair Rae’s work on <a href="http://www.statsmapsnpix.com/2018/12/one-degree-of-population.html" target="_blank">global gridded population</a>.</p></div>
         </div>
