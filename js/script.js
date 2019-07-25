@@ -46,13 +46,15 @@ var mapOptions = {
 var mainMap = L.map('main-map', mapOptions);
 var locatorMap = L.map('locator-map', mapOptions);
 
-var basemapLayer = L.tileLayer('https://api.maptiler.com/maps/positron/{z}/{x}/{y}.png?key=Tth2viuZXT54gsj6plPV', {
-    tileSize: 512,
-    zoomOffset: -1,
-    minZoom: 1,
-    attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>',
-    crossOrigin: true
-}).addTo(locatorMap);
+var basemapLayer = new L.StamenTileLayer("toner-lite").addTo(locatorMap);
+
+// var basemapLayer = L.tileLayer('https://api.maptiler.com/maps/positron/{z}/{x}/{y}.png?key=Tth2viuZXT54gsj6plPV', {
+//     tileSize: 512,
+//     zoomOffset: -1,
+//     minZoom: 1,
+//     attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>',
+//     crossOrigin: true
+// }).addTo(locatorMap);
 
 var locatorRect = L.layerGroup().addTo(locatorMap);
 
@@ -63,11 +65,11 @@ var locatorRect = L.layerGroup().addTo(locatorMap);
 //     attribution: 'HERE'
 // }).addTo(mainMap)
 
-var satellite = L.tileLayer('https://api.maptiler.com/tiles/satellite/{z}/{x}/{y}.jpg?key=Tth2viuZXT54gsj6plPV', {
-    tileSize: 512,
-    zoomOffset: -1,
+var satellite = L.tileLayer('https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}', {
+    // tileSize: 512,
+    // zoomOffset: -1,
     minZoom: 1,
-    attribution: 'OpenMapTiles',
+    attribution: 'USGS',
     crossOrigin: true
 }).addTo(mainMap);
 
