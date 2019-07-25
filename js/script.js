@@ -46,15 +46,15 @@ var mapOptions = {
 var mainMap = L.map('main-map', mapOptions);
 var locatorMap = L.map('locator-map', mapOptions);
 
-var basemapLayer = new L.StamenTileLayer("toner-lite").addTo(locatorMap);
+// var basemapLayer = new L.StamenTileLayer("toner-lite").addTo(locatorMap);
 
-// var basemapLayer = L.tileLayer('https://api.maptiler.com/maps/positron/{z}/{x}/{y}.png?key=Tth2viuZXT54gsj6plPV', {
-//     tileSize: 512,
-//     zoomOffset: -1,
-//     minZoom: 1,
-//     attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>',
-//     crossOrigin: true
-// }).addTo(locatorMap);
+var basemapLayer = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+    // tileSize: 512,
+    // zoomOffset: -1,
+    minZoom: 1,
+    attribution: 'Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap, under ODbL.',
+    crossOrigin: true
+}).addTo(locatorMap);
 
 var locatorRect = L.layerGroup().addTo(locatorMap);
 
